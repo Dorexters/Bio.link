@@ -1,0 +1,231 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #062654; /* Navy */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ffffff;
+}
+
+/* Animasi untuk latar belakang kontainer */
+@keyframes background-animation {
+    0% {
+        background-color: #7fade0; /* Biru muda */
+    }
+    50% {
+        background-color: #2265a2; /* Biru tua */
+    }
+    100% {
+        background-color: #7fade0; /* Kembali ke biru muda */
+    }
+}
+
+/* Kontainer utama */
+.container {
+    background-color: #7fade0; /* Warna awal */
+    padding: 20px;
+    border-radius: 20px;
+    width: 80%; /* Mengurangi lebar kontainer */
+    max-width: 400px; /* Membatasi lebar maksimum */
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    animation: container-slide-in 0.6s ease-out forwards, background-animation 5s ease-in-out infinite;
+    opacity: 0;
+    transform: translateY(30px);
+    margin-left: auto; /* Mengatur margin kiri otomatis */
+    margin-right: auto; /* Mengatur margin kanan otomatis */
+
+    /* Garis tepi (stroke) */
+    border: 3px solid #ffffff; /* Warna putih dengan ketebalan 3px */
+}
+
+/* Animasi kontainer muncul */
+@keyframes container-slide-in {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animasi kontainer keluar */
+@keyframes container-slide-out {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+}
+
+/* Profil Section */
+.profile-section {
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #eaf0f7; /* Lavender */
+    margin-bottom: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+    font-size: 1.8em;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Tombol */
+.btn {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #2265a2;
+    font-weight: 500;
+    border: none;
+    padding: 12px;
+    margin: 10px 0;
+    width: 100%;
+    max-width: 250px;
+    font-size: 1em;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #2265a2;
+    color: #ffffff;
+    transform: scale(1.05);
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* Animasi konten muncul */
+@keyframes content-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animasi konten keluar */
+@keyframes content-fade-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+}
+
+/* Konten yang tersembunyi */
+.hidden-content {
+    display: none; /* Pastikan konten tersembunyi di awal */
+    margin-top: 15px;
+    background-color: #ffffff;
+    color: #2265a2;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: content-fade-in 0.4s ease-out forwards;
+}
+
+/* Konten Connect dengan saya ditata lebih baik */
+#connectContent {
+    display: none;
+    margin-top: 15px;
+    background-color: #ffffff;
+    color: #2265a2;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    animation: content-fade-in 0.4s ease-out forwards;
+
+    /* Layout vertikal untuk tombol */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Tombol sosial media */
+.social-btn {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #2265a2;
+    color: #f3f4f6;
+    font-weight: 500;
+    border: 2px solid #062654; /* Menambahkan garis tepi putih */
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    text-align: center;
+    width: 150px;
+    margin: 5px 0;
+}
+
+.social-btn:hover,
+.social-btn:focus {
+    background-color: #0f4270;
+    transform: scale(1.05);
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+    border-color: #062654; /* Mengubah warna garis tepi saat hover/focus */
+}
+
+/* Animasi ketika tombol ditekan */
+@keyframes button-press {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Efek interaksi tombol */
+.btn:active {
+    animation: button-press 0.2s ease-out; /* Menambahkan animasi press */pppp
+}
+
+/* Animasi kontainer utama saat tombol ditekan */
+@keyframes container-interaction {
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    25% {
+        transform: translateY(-10px) scale(1.05); /* Mengangkat kontainer sedikit */
+    }
+    50% {
+        transform: translateY(0) scale(1); /* Kembali ke posisi normal */
+    }
+}
+
+/* Menambahkan animasi interaksi pada kontainer */
+.container.interacted {
+    animation: container-interaction 0.3s ease-out;
+}
