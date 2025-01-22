@@ -10,36 +10,23 @@ body {
     color: #ffffff;
 }
 
-/* Animasi untuk latar belakang kontainer */
-@keyframes background-animation {
-    0% {
-        background-color: #7fade0; /* Biru muda */
-    }
-    50% {
-        background-color: #2265a2; /* Biru tua */
-    }
-    100% {
-        background-color: #7fade0; /* Kembali ke biru muda */
-    }
-}
-
 /* Kontainer utama */
 .container {
     background-color: #7fade0; /* Warna awal */
     padding: 20px;
     border-radius: 20px;
-    width: 80%; /* Mengurangi lebar kontainer */
-    max-width: 400px; /* Membatasi lebar maksimum */
+    width: 50%; /* Kontainer menggunakan setengah lebar layar */
+    max-width: 400px; /* Membatasi lebar maksimum hingga 400px */
     text-align: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     animation: container-slide-in 0.6s ease-out forwards, background-animation 5s ease-in-out infinite;
     opacity: 0;
     transform: translateY(30px);
-    margin-left: auto; /* Mengatur margin kiri otomatis */
-    margin-right: auto; /* Mengatur margin kanan otomatis */
+    margin: 0 auto; /* Menjaga kontainer tetap di tengah (horizontal) */
 
     /* Garis tepi (stroke) */
     border: 3px solid #ffffff; /* Warna putih dengan ketebalan 3px */
+    box-sizing: border-box; /* Menyertakan padding dalam perhitungan lebar */
 }
 
 /* Animasi kontainer muncul */
@@ -68,7 +55,12 @@ body {
 
 /* Profil Section */
 .profile-section {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Mengatur gambar dan teks di tengah secara horizontal */
+    justify-content: center; /* Mengatur konten di tengah secara vertikal */
+    text-align: center; /* Mengatur teks di tengah */
+    padding: 1px;
 }
 
 .profile-img {
@@ -78,12 +70,22 @@ body {
     border: 4px solid #eaf0f7; /* Lavender */
     margin-bottom: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    top: 1200%;
 }
 
 .title {
-    font-size: 1.8em;
+    font-size: 1pxem;
     font-weight: 600;
     color: #ffffff;
+    position: relative;
+    top: 0px;
+}
+
+.welcome-text {
+    font-size: 2.5em;
+    font-weight: 1200;
+    color: #ffffff;
+    margin-bottom: 10px;
 }
 
 /* Tombol */
@@ -91,17 +93,18 @@ body {
     font-family: 'Poppins', Arial, sans-serif;
     background-color: #f3f4f6;
     color: #2265a2;
-    font-weight: 500;
+    font-weight: 900;
     border: none;
     padding: 12px;
     margin: 10px 0;
     width: 100%;
     max-width: 250px;
-    font-size: 1em;
+    font-size: 20px;
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
 }
 
 .btn:hover,
@@ -140,13 +143,15 @@ body {
 /* Konten yang tersembunyi */
 .hidden-content {
     display: none; /* Pastikan konten tersembunyi di awal */
-    margin-top: 15px;
+    margin-top: 15pxpx;
     background-color: #ffffff;
     color: #2265a2;
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     animation: content-fade-in 0.4s ease-out forwards;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* Konten Connect dengan saya ditata lebih baik */
@@ -172,7 +177,7 @@ body {
     font-family: 'Poppins', Arial, sans-serif;
     background-color: #2265a2;
     color: #f3f4f6;
-    font-weight: 500;
+    font-weight: 900;
     border: 2px solid #062654; /* Menambahkan garis tepi putih */
     padding: 8px 16px;
     border-radius: 8px;
@@ -229,3 +234,20 @@ body {
 .container.interacted {
     animation: container-interaction 0.3s ease-out;
 }
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        max-width: none;
+        padding: 15px;
+    }
+
+    .btn, .social-btn {
+        font-size: 0.9em;
+    }
+
+    .profile-img {
+        width: 100px;
+        height: 100px;
+    }
+    }
