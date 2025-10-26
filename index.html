@@ -1,37 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Profile Page with animations, toggleable content sections, and social media links.">
-    <meta name="keywords" content="Profile Page, About Me, Social Media, Animation, Web Design">
-    <meta name="author" content="Nama Anda">
-    <title>Profile Page with Animated Profile Picture</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal Profile Page - GENEX | Anime Lover & Gamer">
+  <meta name="keywords" content="Profile Page, GENEX, Anime, Game, Personal Website, Manga, Waifu">
+  <meta name="author" content="GENEX">
+  <title>GENEX Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="profile-section">
-            <h2 class="welcome-text">WELCOME</h2>
-            <img src="https://i.imgur.com/zn2qw8R.gif" alt="Foto Profil" class="profile-img">
-            <h1 class="title">GENEX</h1>
+  <div class="container">
+    <!-- Profile Section -->
+    <section class="profile-section" aria-labelledby="profile-title">
+      <h1 id="profile-title" class="title">GENEX</h1>
+      <img src="https://i.imgur.com/zn2qw8R.gif" alt="GENEX Profile Animation" class="profile-img">
+    </section>
+
+    <!-- Navigation Buttons -->
+    <nav class="button-section" aria-label="Main navigation">
+      <button id="aboutMeButton" class="btn" aria-expanded="false" aria-controls="aboutMeContent">
+        <span class="btn-text">About Me</span>
+        <span class="btn-indicator" aria-hidden="true">↓</span>
+      </button>
+      <button id="connectButton" class="btn" aria-expanded="false" aria-controls="connectContent">
+        <span class="btn-text">Connect</span>
+        <span class="btn-indicator" aria-hidden="true">↓</span>
+      </button>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="aboutMeContent" class="hidden-content" aria-labelledby="aboutMeButton" hidden>
+      <div class="content-wrapper">
+        <p>Hobi menonton anime, membaca manga dan light novel, kadang main game, dan punya banyak waifu seperti Ayanami Rei, Makise Kurisu, dan Ryo Yamada.</p>
+      </div>
+    </section>
+
+    <!-- Connect Section -->
+    <section id="connectContent" class="hidden-content" aria-labelledby="connectButton" hidden>
+      <div class="connect-section">
+        <h2 class="connect-title">Connect with Me</h2>
+        <div class="social-grid" role="list" aria-label="Social media links">
+          <a href="#" class="social-btn" title="Instagram" aria-label="Visit my Instagram" role="listitem">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram Icon">
+          </a>
+          <a href="#" class="social-btn" title="Twitter" aria-label="Visit my Twitter" role="listitem">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/x.svg" alt="Twitter Icon">
+          </a>
+          <a href="#" class="social-btn" title="Discord" aria-label="Join my Discord" role="listitem">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg" alt="Discord Icon">
+          </a>
+          <a href="mailto:example@email.com" class="social-btn" title="Email" aria-label="Send me an email" role="listitem">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Email Icon">
+          </a>
+          <a href="#" class="social-btn" title="WhatsApp" aria-label="Contact me on WhatsApp" role="listitem">
+            <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp Icon">
+          </a>
         </div>
-        <div class="button-section">
-            <button id="aboutMeButton" class="btn" aria-expanded="false" aria-controls="aboutMeContent">About Me</button>
-            <button id="connectButton" class="btn" aria-expanded="false" aria-controls="connectContent">Connect with Me</button>
-        </div>
-        <div id="aboutMeContent" class="hidden-content">
-            <p>Hobi menonton anime, suka membaca manga dan light novel, kadang juga suka main game, punya banyak waifu, ada ayanami rei dari neon genesis evangelion, makise kurisu dari steins gate, ryo yamada dari bochi the rock, </p>
-        </div>
-        <div id="connectContent" class="hidden-content">
-            <a href="https://www.instagram.com/aonttrxs?igsh=MTl5ajE2Z2NmMm05Zw==" class="social-btn" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://twitter.com" class="social-btn" target="_blank" rel="noopener noreferrer">Twitter</a>
-            <a href="https://discord.com" class="social-btn" target="_blank" rel="noopener noreferrer">Discord</a>
-            <a href="mailto:email@example.com" class="social-btn">Email</a>
-            <a href="https://wa.me/1234567890" class="social-btn" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-        </div>
-    </div>
-    <script src="script.js"></script>
+      </div>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-</html>
+</html></html>
