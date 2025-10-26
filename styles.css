@@ -1,253 +1,417 @@
-/* Global Styles */
+/* ====== GLOBAL ====== */
 body {
     margin: 0;
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #062654; /* Navy */
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    color: #ffffff;
+    background: url("https://i.ibb.co.com/WNTgzQZz/df0a32c7b657361b6a2a54872eb53299.webp") no-repeat center center/cover;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    color: #ffffff;
+    align-items: flex-start;
+    padding: 40px 20px;
 }
 
-/* Kontainer utama */
+/* ====== KONTAINER UTAMA ====== */
 .container {
-    background-color: #7fade0; /* Warna awal */
-    padding: 20px;
+    background: rgba(127, 173, 224, 0.28);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 20px; /* ganti "auto px" dengan nilai valid */
     border-radius: 20px;
-    width: 50%; /* Kontainer menggunakan setengah lebar layar */
-    max-width: 400px; /* Membatasi lebar maksimum hingga 400px */
+    width: 90%; /* ganti "auto%" dengan nilai valid */
+    max-width: 400px; /* ganti "autopx" dengan nilai valid */
     text-align: center;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    animation: container-slide-in 0.6s ease-out forwards, background-animation 5s ease-in-out infinite;
-    opacity: 0;
-    transform: translateY(30px);
-    margin: 0 auto; /* Menjaga kontainer tetap di tengah (horizontal) */
-
-    /* Garis tepi (stroke) */
-    border: 3px solid #ffffff; /* Warna putih dengan ketebalan 3px */
-    box-sizing: border-box; /* Menyertakan padding dalam perhitungan lebar */
+    opacity: 1;
+    transform: translateY(0);
+    margin: 0 auto;
+    border: 3px solid #ffffff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 150px; /* ganti "auto px" dengan nilai valid */
+    height: auto;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Animasi kontainer muncul */
-@keyframes container-slide-in {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+/* Efek halus ketika container menyesuaikan tinggi */
+.container.accordion-open {
+    transform: scale(1.02);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Animasi kontainer keluar */
-@keyframes container-slide-out {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-}
-
-/* Profil Section */
+/* ====== PROFIL ====== */
 .profile-section {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Mengatur gambar dan teks di tengah secara horizontal */
-    justify-content: center; /* Mengatur konten di tengah secara vertikal */
-    text-align: center; /* Mengatur teks di tengah */
-    padding: 1px;
+    align-items: center;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+.title {
+    font-size: 2em;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
 .profile-img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 4px solid #eaf0f7; /* Lavender */
-    margin-bottom: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    top: 1200%;
+    border: 4px solid #eaf0f7;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    transition: transform 0.4s ease;
 }
 
-.title {
-    font-size: 1pxem;
-    font-weight: 600;
-    color: #ffffff;
-    position: relative;
-    top: 0px;
+.profile-img:hover {
+    transform: scale(1.08) rotate(4deg);
 }
 
-.welcome-text {
-    font-size: 2.5em;
-    font-weight: 1200;
-    color: #ffffff;
-    margin-bottom: 10px;
-}
-
-/* Tombol */
-.btn {
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #f3f4f6;
-    color: #2265a2;
-    font-weight: 900;
-    border: none;
-    padding: 12px;
-    margin: 10px 0;
-    width: 100%;
-    max-width: 250px;
-    font-size: 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-weight: bold;
-}
-
-.btn:hover,
-.btn:focus {
-    background-color: #2265a2;
-    color: #ffffff;
-    transform: scale(1.05);
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
-}
-
-/* Animasi konten muncul */
-@keyframes content-fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Animasi konten keluar */
-@keyframes content-fade-out {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-}
-
-/* Konten yang tersembunyi */
-.hidden-content {
-    display: none; /* Pastikan konten tersembunyi di awal */
-    margin-top: 15pxpx;
-    background-color: #ffffff;
-    color: #2265a2;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    animation: content-fade-in 0.4s ease-out forwards;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-/* Konten Connect dengan saya ditata lebih baik */
-#connectContent {
-    display: none;
-    margin-top: 15px;
-    background-color: #ffffff;
-    color: #2265a2;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    animation: content-fade-in 0.4s ease-out forwards;
-
-    /* Layout vertikal untuk tombol */
+/* ====== TOMBOL UTAMA ====== */
+.button-section {
     display: flex;
     flex-direction: column;
-    gap: 10px;
     align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
-/* Tombol sosial media */
-.social-btn {
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #2265a2;
-    color: #f3f4f6;
-    font-weight: 900;
-    border: 2px solid #062654; /* Menambahkan garis tepi putih */
-    padding: 8px 16px;
-    border-radius: 8px;
+.btn {
+    background: linear-gradient(90deg, #1e4d8e, #4e9ed8);
+    color: #ffffff;
+    font-weight: 700;
+    border: 1.8px solid #ffffff;
+    padding: 12px 20px;
+    margin: 8px 0;
+    width: 100%;
+    font-size: 17px;
+    border-radius: 14px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efek ripple pada tombol */
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #2265a2, #6bb5ff);
+    transform: translateY(-3px);
+    border: 1.8px solid #ffffff;
+    box-shadow: 0 6px 14px rgba(255,255,255,0.3);
+}
+
+.btn.active {
+    background: linear-gradient(90deg, #2a7bc8, #7dc2ff);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* ====== INDIKATOR TOMBOL ACCORDION ====== */
+.btn-indicator {
+    font-size: 16px;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    margin-left: auto;
+}
+
+.btn.active .btn-indicator {
+    transform: rotate(180deg);
+}
+
+.btn-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* ====== CONTENT WRAPPER ====== */
+.content-wrapper {
+    width: 100%;
     text-align: center;
-    width: 150px;
-    margin: 5px 0;
 }
 
-.social-btn:hover,
-.social-btn:focus {
-    background-color: #0f4270;
-    transform: scale(1.05);
-    outline: 2px solid #ffffff;
-    outline-offset: 3px;
-    border-color: #062654; /* Mengubah warna garis tepi saat hover/focus */
+.connect-title {
+    margin-bottom: 15px;
+    color: #062654;
+    font-size: 1.3em;
+    font-weight: 600;
 }
 
-/* Animasi ketika tombol ditekan */
-@keyframes button-press {
+/* ====== ANIMASI ACCORDION HALUS ====== */
+.hidden-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px) scale(0.97);
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.4s ease,
+                transform 0.4s ease;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    visibility: hidden;
+}
+
+.hidden-content.active {
+    max-height: 1000px; /* cukup besar untuk menampung semua konten */
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    margin-top: 15px;
+    padding: 15px 0;
+    visibility: visible;
+}
+
+/* Tambahan: pastikan hanya 1 konten aktif */
+.hidden-content:not(.active) {
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                opacity 0.3s ease,
+                transform 0.3s ease;
+}
+
+/* ====== ANIMASI KEYFRAMES ====== */
+@keyframes slideFadeIn {
     0% {
-        transform: scale(1);
+        opacity: 0;
+        transform: translateY(-15px) scale(0.97);
+        max-height: 0;
     }
-    50% {
-        transform: scale(0.95);
+    60% {
+        opacity: 1;
+        transform: translateY(5px) scale(1.02);
+        max-height: 600px;
     }
     100% {
-        transform: scale(1);
-    }
-}
-
-/* Efek interaksi tombol */
-.btn:active {
-    animation: button-press 0.2s ease-out; /* Menambahkan animasi press */pppp
-}
-
-/* Animasi kontainer utama saat tombol ditekan */
-@keyframes container-interaction {
-    0% {
+        opacity: 1;
         transform: translateY(0) scale(1);
-    }
-    25% {
-        transform: translateY(-10px) scale(1.05); /* Mengangkat kontainer sedikit */
-    }
-    50% {
-        transform: translateY(0) scale(1); /* Kembali ke posisi normal */
+        max-height: 1000px;
     }
 }
 
-/* Menambahkan animasi interaksi pada kontainer */
-.container.interacted {
-    animation: container-interaction 0.3s ease-out;
+@keyframes slideFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        max-height: 1000px;
+    }
+    40% {
+        opacity: 0.5;
+        transform: translateY(-5px) scale(0.98);
+        max-height: 300px;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-15px) scale(0.97);
+        max-height: 0;
+    }
 }
 
+/* ====== KETIKA AKTIF ====== */
+.hidden-content.active {
+    animation: slideFadeIn 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    visibility: visible;
+}
+
+/* ====== KETIKA DITUTUP ====== */
+.hidden-content.closing {
+    animation: slideFadeOut 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ====== ABOUT ME & CONNECT ====== */
+#aboutMeContent,
+#connectContent {
+    background: rgba(255,255,255,0.98);
+    color: #062654;
+    font-weight: 400;
+    font-size: 15px;
+    border-radius: 12px;
+    box-shadow: 
+        0 8px 25px rgba(0,0,0,0.1),
+        inset 0 1px 0 rgba(255,255,255,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 150px;
+    padding: 25px;
+    width: 100%;
+    box-sizing: border-box;
+    transform-origin: top center;
+    transition: transform 0.3s ease;
+}
+
+/* Efek hover halus pada konten */
+#aboutMeContent:hover,
+#connectContent:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 12px 30px rgba(0,0,0,0.15),
+        inset 0 1px 0 rgba(255,255,255,0.5);
+}
+
+/* ====== GRID IKON SOSIAL ====== */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    justify-items: center;
+    padding: 10px 0;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #1e4d8e, #4e9ed8);
+    border: 1.8px solid #ffffff;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.social-btn:hover::before {
+    left: 100%;
+}
+
+.social-btn:hover {
+    transform: translateY(-4px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+.social-btn img {
+    width: 24px;
+    height: 24px;
+    filter: invert(1) brightness(1.3);
+    transition: transform 0.3s ease;
+}
+
+.social-btn:hover img {
+    transform: scale(1.1);
+}
+
+/* ====== RESPONSIF ====== */
 @media (max-width: 600px) {
+    body {
+        padding: 20px 15px;
+    }
+    
     .container {
         width: 90%;
-        max-width: none;
-        padding: 15px;
+        max-width: 100%;
+        padding: 20px;
+        min-height: 180px;
     }
-
-    .btn, .social-btn {
-        font-size: 0.9em;
-    }
-
+    
     .profile-img {
         width: 100px;
         height: 100px;
+    }
+    
+    .btn {
+        font-size: 16px;
+        padding: 12px 16px;
+    }
+    
+    .btn-indicator {
+        font-size: 14px;
+    }
+    
+    .social-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+    }
+    
+    .social-btn {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .social-btn img {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .connect-title {
+        font-size: 1.2em;
+    }
+}
+
+/* Tambahan untuk device sangat kecil */
+@media (max-width: 380px) {
+    .container {
+        padding: 15px;
+        min-height: 160px;
+    }
+    
+    .title {
+        font-size: 1.7em;
+    }
+    
+    .btn {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+    
+    .social-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 8px;
+    }
+    
+    .social-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+    
+    .social-btn img {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .connect-title {
+        font-size: 1.1em;
+        margin-bottom: 12px;
     }
     }
