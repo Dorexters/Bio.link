@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const connectContent = document.getElementById("connectContent");
     const container = document.querySelector(".container");
 
-    // Pastikan konten hidden saat awal dan tambahkan hidden attribute
+   attribute
     [aboutContent, connectContent].forEach(content => {
         content.classList.remove("active", "closing");
         content.style.visibility = "hidden";
